@@ -21,6 +21,8 @@ before_script:
 - npm install -g @angular/cli
 - npm install
 
-script:
-  - ng test -sr
-  - ng e2e
+jobs:
+  include:
+    - script: ng test -sr
+    - stage: integration
+    - script: ng e2e

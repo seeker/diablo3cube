@@ -3,6 +3,10 @@
   <h1>
     {{title}}
   </h1>
+  <Button (click)="showArmors()">Armor</Button>
+  <Button (click)="showWeapons()">Weapons</Button>
+  <Button (click)="showJewelry()">Jewelry</Button>
+
 <ul class="items">
   <div *ngFor="let item of items">
     <app-item-detail [item]="item"></app-item-detail>

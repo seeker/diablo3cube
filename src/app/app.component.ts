@@ -19,6 +19,18 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.showArmors();
+  }
+
+  showArmors(){
     this.itemService.getArmors().then(items => this.items = items);
+  }
+
+  showWeapons(){
+    this.itemService.getWeapons().then(items => this.items = items);
+  }
+
+  showJewelry(){
+    this.itemService.getJewelry().then(items => this.items = items);
   }
 }

@@ -1,4 +1,5 @@
 import {Item} from './item';
+import {CubeData} from './cube-data';
 
 /**
  * Class for tracking the extraction status of an item.
@@ -7,7 +8,7 @@ import {Item} from './item';
  * @param  {boolean} stashed   true if the item is in the stash
  * @return {CubeItem}          configured instance
  */
-export class CubeItem {
+export class CubeItem implements CubeData {
     constructor(name: string, extracted?: boolean, stashed?: boolean ){
       this.name = name;
       this.extracted = extracted || false;

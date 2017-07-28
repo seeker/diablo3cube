@@ -10,8 +10,8 @@ import {Item} from './item';
 export class CubeItem {
     constructor(name: string, extracted?: boolean, stashed?: boolean ){
       this.name = name;
-      this.extracted = extracted;
-      this.stashed = stashed;
+      this.extracted = extracted || false;
+      this.stashed = stashed || false;
     }
 
     name: string;

@@ -1,3 +1,6 @@
 <p *ngIf="item" class="item-detail">
   {{item.name}}
+  <input [(ngModel)]="cube.extractedSeason" (change)="checkboxChanged()" type="checkbox"/>
+  <input [(ngModel)]="cube.extractedNormal" (change)="checkboxChanged()" type="checkbox"/>
+  <input [(ngModel)]="cube.stashed"  (change)="checkboxChanged()" type="checkbox"/>
 </p>

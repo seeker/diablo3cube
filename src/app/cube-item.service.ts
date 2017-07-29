@@ -45,6 +45,6 @@ export class CubeItemService {
     }
 
     //TODO static function to create instance from ItemData
-    return new CubeItem(stored.name, stored.extracted, stored.stashed);
+    return new CubeItem(stored.name, stored.extractedNormal, stored.extractedSeason, stored.stashed);
   }
 }

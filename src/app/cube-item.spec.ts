@@ -22,8 +22,12 @@ describe('CubeItem', () => {
     expect(sut.name).toMatch(testName);
   });
 
-  it('should not be extracted', () => {
-    expect(sut.extracted).toEqual(false);
+  it('should not be extracted normal', () => {
+    expect(sut.extractedNormal).toEqual(false);
+  });
+
+  it('should not be extracted season', () => {
+    expect(sut.extractedSeason).toEqual(false);
   });
 
   it('should not be stashed', () => {
@@ -32,11 +36,11 @@ describe('CubeItem', () => {
 
   it('should be extracted', () => {
     sut = new CubeItem(testName, true);
-    expect(sut.extracted).toEqual(true);
+    expect(sut.extractedNormal).toEqual(true);
   });
 
   it('should be stashed', () => {
-    sut = new CubeItem(testName, false, true);
+    sut = new CubeItem(testName, false, false, true);
 
     expect(sut.stashed).toEqual(true);
   });

@@ -1,5 +1,6 @@
 export interface CubeData {
   name: string;
-  extracted: boolean;
+  extractedNormal: boolean;
+  extractedSeason: boolean;
   stashed: boolean;
 }

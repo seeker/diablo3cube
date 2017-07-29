@@ -9,13 +9,15 @@ import {CubeData} from './cube-data';
  * @return {CubeItem}          configured instance
  */
 export class CubeItem implements CubeData {
-    constructor(name: string, extracted?: boolean, stashed?: boolean ){
+    constructor(name: string, extractedNormal?: boolean, extractedSeason?: boolean, stashed?: boolean ){
       this.name = name;
-      this.extracted = extracted || false;
+      this.extractedNormal = extractedNormal || false;
+      this.extractedSeason = extractedSeason || false;
       this.stashed = stashed || false;
     }
 
     name: string;
-    extracted: boolean;
+    extractedNormal: boolean;
+    extractedSeason: boolean;
     stashed: boolean;
 }

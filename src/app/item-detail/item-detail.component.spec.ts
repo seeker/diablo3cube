@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
+import { CubeItemService } from '../cube-item.service';
 import { ItemDetailComponent } from './item-detail.component';
+
 
 describe('ItemDetailComponent', () => {
   let component: ItemDetailComponent;
@@ -8,7 +11,9 @@ describe('ItemDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ItemDetailComponent]
+      imports: [FormsModule],
+      declarations: [ItemDetailComponent],
+      providers: [{ provide: CubeItemService, useValue: {} }]
     })
       .compileComponents();
   }));

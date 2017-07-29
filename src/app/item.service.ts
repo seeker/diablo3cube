@@ -9,9 +9,9 @@ var itemData = require('assets/items.json')
 export class ItemService {
   private itemStore = 'assets/items.json'
 
-  private armors : Item[];
-  private jewelry : Item[];
-  private weapons : Item[];
+  private armors: Item[];
+  private jewelry: Item[];
+  private weapons: Item[];
 
   constructor() {
     this.armors = this.createItems(itemData.armor);
@@ -31,12 +31,12 @@ export class ItemService {
     return Promise.resolve(this.weapons);
   }
 
-  private createItems(jsonArray:any) : Item[] {
+  private createItems(jsonArray: any): Item[] {
     console.log(jsonArray);
 
-    let result : Item[] = [];
+    let result: Item[] = [];
 
-    for(let row of jsonArray) {
+    for (let row of jsonArray) {
       result.push(new Item(row.name, row.affix));
     }
 

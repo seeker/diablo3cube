@@ -9,21 +9,21 @@ export class CubeItemService {
 
   constructor(private localStorageService: LocalStorageService) { }
 
-/**
- * Get the data for the associated item
- * @param  {string}   name of the item to query
- * @return {CubeItem}      data for the item, or undefined if not found
- */
+  /**
+   * Get the data for the associated item
+   * @param  {string}   name of the item to query
+   * @return {CubeItem}      data for the item, or undefined if not found
+   */
   public get(name: string): CubeItem {
     return this.getItem(CubeItemService.normalPrefix, name);
   }
 
-/**
- * Set data for an item. The name is used as a key and is
- * extracted from the item itself.
- * @param  {CubeItem} item item to store
- * @return {boolean}       true if successfully stored
- */
+  /**
+   * Set data for an item. The name is used as a key and is
+   * extracted from the item itself.
+   * @param  {CubeItem} item item to store
+   * @return {boolean}       true if successfully stored
+   */
   public set(item: CubeItem): boolean {
     return this.setItem(CubeItemService.normalPrefix, item);
   }

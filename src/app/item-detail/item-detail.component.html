@@ -1,7 +1,7 @@
 <p *ngIf="item" class="item-detail">
-  {{item.name}}
+  <span class="item-name">{{item.name}}</span>
   <input [(ngModel)]="cube.extractedSeason" (change)="checkboxChanged()" type="checkbox"/>
   <input [(ngModel)]="cube.extractedNormal" (change)="checkboxChanged()" type="checkbox"/>
   <input [(ngModel)]="cube.stashed"  (change)="checkboxChanged()" type="checkbox"/>
-  {{item.affix}}
+  <span class="item-affix">{{item.affix}}</span>
 </p>

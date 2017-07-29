@@ -9,8 +9,8 @@ export class Diablo3cubePage {
     return element(by.css('app-root h1')).getText();
   }
 
-  getItemDetail() {
-    return element(by.className('item-detail')).getText();
+  getItemName() {
+    return element(by.className('item-name')).getText();
   }
 
   clickButton(name: string) {

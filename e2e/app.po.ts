@@ -16,4 +16,13 @@ export class Diablo3cubePage {
   clickButton(name: string) {
     return element(by.buttonText(name)).click();
   }
+
+  clickCheckbox(name: string) {
+    return element(by.className(name)).click();
+  }
+
+  isChecked(name: string): any {
+    // TODO use typescript instead of Javascript
+    return element(by.className(name)).isSelected();
+  }
 }

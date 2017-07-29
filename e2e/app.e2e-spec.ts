@@ -38,4 +38,25 @@ describe('diablo3cube App', () => {
     page.clickButton('Armor');
     expect(page.getItemName()).toEqual('Akarat\'s Awakening');
   });
+
+  it('should check seasonal checkbox', () => {
+    page.navigateTo();
+    page.clickCheckbox('checkbox-season');
+
+    expect(page.isChecked('checkbox-season')).toBeTruthy();
+  });
+
+  it('should check normal checkbox', () => {
+    page.navigateTo();
+    page.clickCheckbox('checkbox-normal');
+
+    expect(page.isChecked('checkbox-normal')).toBeTruthy();
+  });
+
+  it('should check stashed checkbox', () => {
+    page.navigateTo();
+    page.clickCheckbox('checkbox-stashed');
+
+    expect(page.isChecked('checkbox-stashed')).toBeTruthy();
+  });
 });

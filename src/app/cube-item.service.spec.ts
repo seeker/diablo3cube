@@ -7,20 +7,20 @@ import { CubeItem } from './cube-item';
 
 const testPrefix = 'diablo3cube-test';
 
-const existingItemKey: string = 'existingItem';
-const newItemKey: string = 'newItem';
-const existingItemSeasonalKey: string = 'existingItemSeasonal';
+const existingItemKey = 'existingItem';
+const newItemKey = 'newItem';
+const existingItemSeasonalKey = 'existingItemSeasonal';
 
 describe('CubeItemService', () => {
 
-
+  /* tslint:disable:prefer-const */
   let cubeItemService: CubeItemService;
   let localStorageService: LocalStorageService;
 
   let existingItem: CubeItem;
   let existingItemSeasonal: CubeItem;
   let newItem: CubeItem;
-
+  /* tslint:enable:prefer-const */
 
   beforeEach(() => {
     this.localStorageService = new LocalStorageService({ prefix: testPrefix, storageType: 'localStorage' });
@@ -31,8 +31,7 @@ describe('CubeItemService', () => {
     this.existingItemSeasonal = new CubeItem(existingItemSeasonalKey);
     this.newItem = new CubeItem(newItemKey);
 
-    this.cubeItemService.setNormal(this.existingItem);
-    this.cubeItemService.setSeasonal(this.existingItemSeasonal);
+    this.cubeItemService.set(this.existingItem);
   });
 
   it('should clear stored test data', () => {
@@ -43,27 +42,15 @@ describe('CubeItemService', () => {
     expect(this.cubeItemService).toBeTruthy();
   });
 
-  it('should store normal item', () => {
-    expect(this.cubeItemService.setNormal(this.newItem)).toEqual(true);
+  it('should store item', () => {
+    expect(this.cubeItemService.set(this.newItem)).toEqual(true);
   });
 
-  it('should have normal existing item', () =>{
-    expect(this.cubeItemService.getNormal(existingItemKey)).toEqual(this.existingItem);
+  it('should have existing item', () => {
+    expect(this.cubeItemService.get(existingItemKey)).toEqual(this.existingItem);
   });
 
-  it('should not have normal item', () =>{
-    expect(this.cubeItemService.getNormal(newItemKey)).toEqual(undefined);
-  });
-
-  it('should store seasonal item', () => {
-    expect(this.cubeItemService.setSeasonal(this.newItem)).toEqual(true);
-  });
-
-  it('should have seasonal existing item', () =>{
-    expect(this.cubeItemService.getSeasonal(existingItemSeasonalKey)).toEqual(this.existingItemSeasonal);
-  });
-
-  it('should not have seasonal item', () =>{
-    expect(this.cubeItemService.getSeasonal(newItemKey)).toEqual(undefined);
+  it('should not have item', () => {
+    expect(this.cubeItemService.get(newItemKey)).toEqual(undefined);
   });
 });

@@ -5,27 +5,27 @@ import { CubeData } from './cube-data';
 
 @Injectable()
 export class CubeItemService {
-  static readonly normalPrefix: string = "normal";
-  static readonly seasonalPrefix: string = "seasonal";
-
-
+  static readonly normalPrefix = 'normal';
 
   constructor(private localStorageService: LocalStorageService) { }
 
-  public getNormal(name: string): CubeItem {
+/**
+ * Get the data for the associated item
+ * @param  {string}   name of the item to query
+ * @return {CubeItem}      data for the item, or undefined if not found
+ */
+  public get(name: string): CubeItem {
     return this.getItem(CubeItemService.normalPrefix, name);
   }
 
-  public setNormal(item: CubeItem): boolean {
+/**
+ * Set data for an item. The name is used as a key and is
+ * extracted from the item itself.
+ * @param  {CubeItem} item item to store
+ * @return {boolean}       true if successfully stored
+ */
+  public set(item: CubeItem): boolean {
     return this.setItem(CubeItemService.normalPrefix, item);
-  }
-
-  public getSeasonal(name: string): CubeItem {
-    return this.getItem(CubeItemService.seasonalPrefix, name);
-  }
-
-  public setSeasonal(item: CubeItem): boolean {
-    return this.setItem(CubeItemService.seasonalPrefix, item);
   }
 
   private buildStoreKey(prefix: string, name: string): string {
@@ -37,14 +37,14 @@ export class CubeItemService {
   }
 
   private getItem(prefix: string, name: string): CubeItem {
-    let storeKey: string = this.buildStoreKey(prefix, name);
-    let stored: CubeData = this.localStorageService.get<CubeData>(storeKey);
+    const storeKey: string = this.buildStoreKey(prefix, name);
+    const stored: CubeData = this.localStorageService.get<CubeData>(storeKey);
 
     if (stored === null) {
       return undefined;
     }
 
-    //TODO static function to create instance from ItemData
+    // TODO static function to create instance from ItemData
     return new CubeItem(stored.name, stored.extractedNormal, stored.extractedSeason, stored.stashed);
   }
 }

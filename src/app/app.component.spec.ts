@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import {ItemListComponent} from './item-list/item-list.component';
 import { ItemService } from './item.service';
 
 describe('AppComponent', () => {
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        ItemDetailComponent
+        ItemDetailComponent,
+        ItemListComponent
       ],
       providers: [ItemService]
 

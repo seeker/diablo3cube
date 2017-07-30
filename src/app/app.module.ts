@@ -9,11 +9,13 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 import { ItemService } from './item.service';
 import { CubeItemService } from './cube-item.service';
+import { ItemListComponent } from './item-list/item-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ItemDetailComponent } from './item-detail/item-detail.component';
-
 import { ItemService } from './item.service';
 import { Item } from './item';
 

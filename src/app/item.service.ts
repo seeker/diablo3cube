@@ -3,20 +3,32 @@ import { Item } from './item';
 
 import 'rxjs/add/operator/map';
 
-var itemData = require('assets/items.json')
-
 @Injectable()
 export class ItemService {
-  private itemStore = 'assets/items.json'
+  private itemStore = 'assets/items.json';
 
   private armors: Item[];
   private jewelry: Item[];
   private weapons: Item[];
 
+  private itemData: any;
+
   constructor() {
-    this.armors = this.createItems(itemData.armor);
-    this.jewelry = this.createItems(itemData.jewelry);
-    this.weapons = this.createItems(itemData.weapons);
+    const data = require('assets/items.json');
+    this.setData(data);
+  }
+
+
+  /**
+   * Set the data for this service. Intended for testing.
+   * @param {any} data to set for service
+   */
+  public setData(data: any): void {
+    this.itemData = data;
+
+    this.armors = this.createItems(this.itemData.armor);
+    this.jewelry = this.createItems(this.itemData.jewelry);
+    this.weapons = this.createItems(this.itemData.weapons);
   }
 
   getArmors(): Promise<Item[]> {
@@ -32,11 +44,9 @@ export class ItemService {
   }
 
   private createItems(jsonArray: any): Item[] {
-    console.log(jsonArray);
+    const result: Item[] = [];
 
-    let result: Item[] = [];
-
-    for (let row of jsonArray) {
+    for (const row of jsonArray) {
       result.push(new Item(row.name, row.affix));
     }
 

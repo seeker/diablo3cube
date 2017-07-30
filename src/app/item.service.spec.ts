@@ -4,35 +4,44 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ItemService } from './item.service';
 import { Item } from './item';
 
+const testData = '{"armor":[{"name":"an", "affix": "aa"}],"jewelry" : [{"name":"jn","affix":"ja"}],"weapons":[{"name":"wn","affix":"wa"}]}';
+
+let service: ItemService;
+
+let itemA: Item;
+let itemW: Item;
+let itemJ: Item;
+
 describe('ItemService', () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ItemService]
+    service = new ItemService();
+    service.setData(JSON.parse(testData));
+
+    itemA = new Item('an', 'aa');
+    itemW = new Item('wn', 'wa');
+    itemJ = new Item('jn', 'ja');
+
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  it('armors should contain', () => {
+    service.getArmors().then((res) => {
+      expect(res).toContain(itemA);
     });
   });
 
-  it('should be created', inject([ItemService], (service: ItemService) => {
-    expect(service).toBeTruthy();
-  }));
-
-  it('armors should contain', inject([ItemService], (service: ItemService) => {
-    service.getArmors().then((res) => {
-      expect(res)
-      .toContain(new Item("Beckon Sail", "When receiving fatal damage, you instead automatically cast Smoke Screen and are healed to 25% Life. This effect may occur once every 120 seconds."))
-    });
-  }));
-
-  it('jewelry should contain', inject([ItemService], (service: ItemService) => {
+  it('jewelry should contain', () => {
     service.getJewelry().then((res) => {
-      expect(res)
-      .toContain(new Item("Ancestors' Grace", "When receiving fatal damage, you are instead restored to 100% of maximum Life and resources. This item is destroyed in the process."))
+      expect(res).toContain(itemJ);
     });
-  }));
+  });
 
-  it('weapons should contain', inject([ItemService], (service: ItemService) => {
+  it('weapons should contain', () => {
     service.getWeapons().then((res) => {
-      expect(res)
-      .toContain(new Item("Aether Walker", "Teleport no longer has a cooldown but costs 25 Arcane Power."))
+      expect(res).toContain(itemW);
     });
-  }));
+  });
 });

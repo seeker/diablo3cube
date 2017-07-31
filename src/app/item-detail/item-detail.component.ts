@@ -6,7 +6,8 @@ import { Item } from '../item';
 import { CubeItem } from '../cube-item';
 
 @Component({
-  selector: 'app-item-detail',
+  /* tslint:disable:component-selector*/
+  selector: 'tr[app-item-detail]',
   templateUrl: './item-detail.component.html',
   styleUrls: ['./item-detail.component.css']
 })

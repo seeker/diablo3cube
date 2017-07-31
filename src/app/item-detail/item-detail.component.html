@@ -1,7 +1,12 @@
-<p *ngIf="item" class="item-detail">
-  <span class="item-name">{{item.name}}</span>
-  <input class="checkbox-season" [(ngModel)]="cube.extractedSeason" (change)="checkboxChanged()" type="checkbox"/>
-  <input class="checkbox-normal" [(ngModel)]="cube.extractedNormal" (change)="checkboxChanged()" type="checkbox"/>
-  <input class="checkbox-stashed" [(ngModel)]="cube.stashed"  (change)="checkboxChanged()" type="checkbox"/>
-  <span class="item-affix">{{item.affix}}</span>
-</p>
+
+  <td class="item-name">{{item.name}}</td>
+  <td>
+    <input class="checkbox-season" [(ngModel)]="cube.extractedSeason" (change)="checkboxChanged()" type="checkbox"/>
+  </td>
+  <td>
+    <input class="checkbox-normal" [(ngModel)]="cube.extractedNormal" (change)="checkboxChanged()" type="checkbox"/>
+  </td>
+  <td>
+    <input class="checkbox-stashed" [(ngModel)]="cube.stashed"  (change)="checkboxChanged()" type="checkbox"/>
+  </td>
+  <td class="item-affix">{{item.affix}}</td>

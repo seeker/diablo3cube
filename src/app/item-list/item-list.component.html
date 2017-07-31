@@ -6,8 +6,13 @@
 <Button (click)="showWeapons()">Weapons</Button>
 <Button (click)="showJewelry()">Jewelry</Button>
 
-<ul class="items">
-  <div *ngFor="let item of items">
-    <app-item-detail [item]="item"></app-item-detail>
-  </div>
-</ul>
+<table class="items">
+  <tr>
+    <th>Name</th>
+    <th>Season</th>
+    <th>Normal</th>
+    <th>Stashed</th>
+    <th>Affix</th>
+  </tr>
+  <tr class="item-row" app-item-detail [item]="item" *ngFor="let item of items"></tr>
+</table>

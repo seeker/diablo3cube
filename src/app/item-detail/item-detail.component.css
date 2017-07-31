@@ -1,0 +1,10 @@
+td.item-name {
+  text-align: left;
+  white-space: nowrap;
+}
+
+td.item-affix {
+  text-align: left;
+  white-space: nowrap;
+  overflow: ellipsis;
+}

@@ -12,12 +12,14 @@ import { CubeItemService } from './cube-item.service';
 import { ItemListComponent } from './item-list/item-list.component';
 
 import { SettingService } from './setting.service';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemDetailComponent,
-    ItemListComponent
+    ItemListComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,

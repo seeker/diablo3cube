@@ -18,8 +18,7 @@ describe('AppComponent', () => {
         AppComponent,
         ItemDetailComponent,
         ItemListComponent
-      ],
-      providers: [ItemService]
+      ]
 
     }).compileComponents();
   }));

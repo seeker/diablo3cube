@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import {SettingComponent} from './setting/setting.component';
+import {ItemListComponent} from './item-list/item-list.component';
+
 const routes: Routes = [
   {
-    path: '',
-    children: []
+    path: 'settings',
+    component: SettingComponent
+  },
+  {
+    path: 'items',
+    component: ItemListComponent
+  },
+  {
+  path: '',
+  redirectTo: '/items',
+  pathMatch: 'full'
   }
 ];
 

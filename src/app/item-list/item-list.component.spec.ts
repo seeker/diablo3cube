@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ItemListComponent } from './item-list.component';
 import { ItemDetailComponent } from '../item-detail/item-detail.component';
 
+import {ItemService} from '../item.service';
+
 describe('ItemListComponent', () => {
   let component: ItemListComponent;
   let fixture: ComponentFixture<ItemListComponent>;
@@ -11,7 +13,8 @@ describe('ItemListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ItemListComponent, ItemDetailComponent],
-      imports: [FormsModule]
+      imports: [FormsModule],
+      providers: [ItemService]
     })
       .compileComponents();
   }));

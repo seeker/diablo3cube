@@ -37,4 +37,26 @@ export class Diablo3cubePage {
   getH2() {
     return element(by.tagName('h2')).getText();
   }
+
+  private clickSetting(id: string) {
+    element(by.id(id)).click();
+  }
+
+  clickHideNormal() {
+    this.navigateToSettings();
+    this.clickSetting('setting-hide-normal');
+  }
+
+  clickHideSeason() {
+    this.navigateToSettings();
+    this.clickSetting('setting-hide-season');
+  }
+
+  clearLocalStore() {
+    browser.executeScript('window.localStorage.clear();');
+  }
+
+  pause() {
+    browser.pause();
+  }
 }

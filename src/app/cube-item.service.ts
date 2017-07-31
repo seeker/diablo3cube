@@ -12,7 +12,7 @@ export class CubeItemService {
   /**
    * Get the data for the associated item
    * @param  {string}   name of the item to query
-   * @return {CubeItem}      data for the item, or undefined if not found
+   * @return {CubeItem}      data for the item, will create a new data instance if not found
    */
   public get(name: string): CubeItem {
     return this.getItem(CubeItemService.normalPrefix, name);
@@ -41,7 +41,7 @@ export class CubeItemService {
     const stored: CubeData = this.localStorageService.get<CubeData>(storeKey);
 
     if (stored === null) {
-      return undefined;
+      return new CubeItem(name);
     }
 
     // TODO static function to create instance from ItemData

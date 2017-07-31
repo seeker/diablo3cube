@@ -1,10 +1,16 @@
 import { Diablo3cubePage } from './app.po';
+import { browser, by, element } from 'protractor';
 
 describe('diablo3cube App', () => {
   let page: Diablo3cubePage;
 
   beforeEach(() => {
     page = new Diablo3cubePage();
+    page.navigateTo();
+  });
+
+  afterEach(() => {
+    page.clearLocalStore();
   });
 
   it('should display welcome message', () => {
@@ -71,5 +77,24 @@ describe('diablo3cube App', () => {
     page.navigateToItems();
 
     expect(page.getH2()).toEqual('Items');
+  });
+
+  it('should hide seasonal cubed items', () => {
+    page.clickCheckbox('checkbox-season');
+
+    page.clickHideSeason();
+    page.navigateToItems();
+
+    expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
+  });
+
+  it('should hide normal cubed items', () => {
+    page.clickCheckbox('checkbox-normal');
+
+    page.clickHideNormal();
+    page.navigateToItems();
+    browser.refresh(); // TODO page should auto reload on ticked items
+
+    expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
   });
 });

@@ -17,7 +17,6 @@ export class ItemDetailComponent {
 
   @Input()
   set item(item: Item) {
-    console.log('Item ' + item.name + ' set');
     this.localItem = item;
     this.loadCubeData();
   }

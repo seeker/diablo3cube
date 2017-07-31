@@ -51,6 +51,6 @@ describe('CubeItemService', () => {
   });
 
   it('should not have item', () => {
-    expect(this.cubeItemService.get(newItemKey)).toEqual(undefined);
+    expect(this.cubeItemService.get(newItemKey)).toEqual(this.newItem);
   });
 });

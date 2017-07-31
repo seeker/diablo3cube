@@ -23,15 +23,7 @@ export class ItemDetailComponent {
   }
 
   private loadCubeData(): void {
-    const savedState: CubeItem = this.cubeItemService.get(this.localItem.name);
-
-    if (savedState === undefined) {
-      console.log('No entry found for ' + this.localItem.name + ', creating new entry');
-      this.cube = new CubeItem(this.localItem.name);
-    } else {
-      console.log('Entry found for ' + this.localItem.name);
-      this.cube = savedState;
-    }
+    this.cube = this.cubeItemService.get(this.localItem.name);
   }
 
   get item(): Item {

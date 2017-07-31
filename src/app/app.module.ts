@@ -11,6 +11,8 @@ import { ItemService } from './item.service';
 import { CubeItemService } from './cube-item.service';
 import { ItemListComponent } from './item-list/item-list.component';
 
+import { SettingService } from './setting.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,7 @@ import { ItemListComponent } from './item-list/item-list.component';
       storageType: 'localStorage'
     })
   ],
-  providers: [LocalStorageModule, ItemService, CubeItemService],
+  providers: [LocalStorageModule, ItemService, CubeItemService, SettingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

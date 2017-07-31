@@ -1,0 +1,10 @@
+<h2>
+  Settings
+</h2>
+<p>
+  <input id="setting-hide-normal" [(ngModel)]="hideCubeNormal" (change)="settingChanged()" type="checkbox"/>
+  <label for="setting-hide-normal">Hide items cubed in normal</label>
+
+  <input id="setting-hide-season" [(ngModel)]="hideCubeSeasonal" (change)="settingChanged()" type="checkbox"/>
+  <label for="setting-hide-season">Hide items cubed in seasons</label>
+</p>

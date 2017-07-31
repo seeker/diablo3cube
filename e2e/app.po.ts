@@ -25,4 +25,16 @@ export class Diablo3cubePage {
     // TODO use typescript instead of Javascript
     return element(by.className(name)).isSelected();
   }
+
+  navigateToSettings() {
+    return browser.get('/settings');
+  }
+
+  navigateToItems() {
+    return browser.get('/items');
+  }
+
+  getH2() {
+    return element(by.tagName('h2')).getText();
+  }
 }

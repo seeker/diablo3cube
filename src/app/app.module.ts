@@ -11,11 +11,15 @@ import { ItemService } from './item.service';
 import { CubeItemService } from './cube-item.service';
 import { ItemListComponent } from './item-list/item-list.component';
 
+import { SettingService } from './setting.service';
+import { SettingComponent } from './setting/setting.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ItemDetailComponent,
-    ItemListComponent
+    ItemListComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { ItemListComponent } from './item-list/item-list.component';
       storageType: 'localStorage'
     })
   ],
-  providers: [LocalStorageModule, ItemService, CubeItemService],
+  providers: [LocalStorageModule, ItemService, CubeItemService, SettingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

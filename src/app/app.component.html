@@ -3,9 +3,7 @@
   <h1>
     {{title}}
   </h1>
-  <Button (click)="showArmors()">Armor</Button>
-  <Button (click)="showWeapons()">Weapons</Button>
-  <Button (click)="showJewelry()">Jewelry</Button>
-
-<app-item-list [items]="items"></app-item-list>
+  <a routerLink="/items">Items</a>
+  <a routerLink="/settings">Settings</a>
+  <br>
 <router-outlet></router-outlet>

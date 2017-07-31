@@ -59,4 +59,17 @@ describe('diablo3cube App', () => {
 
     expect(page.isChecked('checkbox-stashed')).toBeTruthy();
   });
+
+  it('should navigate to settings', () => {
+    page.navigateToSettings();
+
+    expect(page.getH2()).toEqual('Settings');
+  });
+
+  it('should navigate to items', () => {
+    page.navigateToSettings();
+    page.navigateToItems();
+
+    expect(page.getH2()).toEqual('Items');
+  });
 });

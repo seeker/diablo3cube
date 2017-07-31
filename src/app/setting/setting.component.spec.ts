@@ -22,4 +22,6 @@ describe('SettingComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO how to write tests for this with mocks?
 });

@@ -13,19 +13,19 @@ export class SettingComponent implements OnInit {
 
   constructor(private settingService: SettingService) { }
 
-  private set hideCubeNormal(value: boolean) {
+  set hideCubeNormal(value: boolean) {
     this.settingService.setSetting(Settings.HideCubedNormal, value);
   }
 
-  private get hideCubeNormal(): boolean {
+  get hideCubeNormal(): boolean {
     return this.settingService.getSetting(Settings.HideCubedNormal);
   }
 
-  private set hideCubeSeasonal(value: boolean) {
+  set hideCubeSeasonal(value: boolean) {
     this.settingService.setSetting(Settings.HideCubedSeason, value);
   }
 
-  private get hideCubeSeasonal(): boolean {
+  get hideCubeSeasonal(): boolean {
     return this.settingService.getSetting(Settings.HideCubedSeason);
   }
 

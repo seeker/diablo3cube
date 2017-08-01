@@ -28,3 +28,15 @@ jobs:
       script: ng e2e
       node_js: "6"
       node_js: "node"
+    - stage: deploy
+      node_js: "node"
+      script:
+        - npm install enhanced-resolve@3.3.0 # Workaround from https://github.com/angular/angular-cli/issues/4551#issuecomment-317459157
+        - ng build -prod
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        local_dir: dist
+        github_token: $GITHUB_OAUTH_TOKEN
+        on:
+          branch: master

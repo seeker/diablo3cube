@@ -28,3 +28,10 @@ jobs:
       script: ng e2e
       node_js: "6"
       node_js: "node"
+    - stage: deploy
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_OAUTH_TOKEN
+        on:
+          branch: master

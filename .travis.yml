@@ -17,7 +17,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-- yarn add -g @angular/cli
+- yarn add @angular/cli
 
 jobs:
   include:

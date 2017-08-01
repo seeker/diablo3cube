@@ -30,7 +30,9 @@ jobs:
       node_js: "node"
     - stage: deploy
       node_js: "node"
-      script: ng build -prod
+      script:
+        - npm install enhanced-resolve@3.3.0 # Workaround from https://github.com/angular/angular-cli/issues/4551#issuecomment-317459157
+        - ng build -prod
       deploy:
         provider: pages
         skip_cleanup: true

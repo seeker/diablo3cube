@@ -13,6 +13,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 
 import { SettingService } from './setting.service';
 import { SettingComponent } from './setting/setting.component';
+import { ItemFilterService } from './item-filter.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { SettingComponent } from './setting/setting.component';
       storageType: 'localStorage'
     })
   ],
-  providers: [LocalStorageModule, ItemService, CubeItemService, SettingService],
+  providers: [LocalStorageModule,
+    ItemService,
+    CubeItemService,
+    SettingService,
+    ItemFilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

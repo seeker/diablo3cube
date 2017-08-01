@@ -1,10 +1,8 @@
 import { async, inject, TestBed } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-import { LocalStorageService } from 'angular-2-local-storage';
-import { SettingService } from './setting.service';
-import { CubeItemService } from './cube-item.service';
 import { ItemService } from './item.service';
+import { ItemFilterService } from './item-filter.service';
 import { Item } from './item';
 
 const testData = '{"armor":[{"name":"an", "affix": "aa"}],"jewelry" : [{"name":"jn","affix":"ja"}],"weapons":[{"name":"wn","affix":"wa"}]}';
@@ -17,8 +15,7 @@ let itemJ: Item;
 
 describe('ItemService', () => {
   beforeEach(() => {
-    const locals = new LocalStorageService({ prefix: 'testPrefix', storageType: 'localStorage' });
-    service = new ItemService(new SettingService(locals), new CubeItemService(locals));
+    service = new ItemService({ displayItem(item: Item): boolean { return true; } } as ItemFilterService);
     service.setData(JSON.parse(testData));
 
     itemA = new Item('an', 'aa');

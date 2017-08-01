@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item';
 
-import { SettingService, Settings } from './setting.service';
-import { CubeItemService } from './cube-item.service';
+import { ItemFilterService } from './item-filter.service';
 
 import 'rxjs/add/operator/map';
 
@@ -16,11 +15,10 @@ export class ItemService {
 
   private itemData: any;
 
-  constructor(private settingService: SettingService, private cubeItemService: CubeItemService) {
+  constructor(private itemFilter: ItemFilterService) {
     const data = require('assets/items.json');
     this.setData(data);
   }
-
 
   /**
    * Set the data for this service. Intended for testing.
@@ -34,28 +32,8 @@ export class ItemService {
     this.weapons = this.createItems(this.itemData.weapons);
   }
 
-  private hideNormalCubed(): boolean {
-    return this.settingService.getSetting(Settings.HideCubedNormal);
-  }
-
-  private hideSeasonalCubed(): boolean {
-    return this.settingService.getSetting(Settings.HideCubedSeason);
-  }
-
   private filterItems(items: Item[]): Item[] {
-    let filteredItems: Item[] = items;
-
-    if (this.hideNormalCubed()) {
-      console.log('Filtering normal cubed items');
-      filteredItems = filteredItems.filter(foo => this.cubeItemService.get(foo.name).extractedNormal === false);
-    }
-
-    if (this.hideSeasonalCubed()) {
-      console.log('Filtering season cubed items');
-      filteredItems = filteredItems.filter(foo => this.cubeItemService.get(foo.name).extractedSeason === false);
-    }
-
-    return filteredItems;
+    return items.filter(item => this.itemFilter.displayItem(item));
   }
 
   getArmors(): Promise<Item[]> {

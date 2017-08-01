@@ -29,6 +29,7 @@ jobs:
       node_js: "6"
       node_js: "node"
     - stage: deploy
+      node_js: "node"
       script: ng build -prod
       deploy:
         provider: pages

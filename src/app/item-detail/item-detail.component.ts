@@ -13,8 +13,8 @@ import { CubeItem } from '../cube-item';
 })
 
 export class ItemDetailComponent {
-  private localItem: Item;
-  private cube: CubeItem;
+  localItem: Item;
+  cube: CubeItem;
 
   @Input()
   set item(item: Item) {

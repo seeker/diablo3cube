@@ -18,6 +18,7 @@ before_install:
 
 before_script:
 - yarn global add @angular/cli
+- ng set --global packageManager=yarn
 
 jobs:
   include:

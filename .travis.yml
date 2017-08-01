@@ -9,7 +9,7 @@ addons:
       - google-chrome-stable
 
 language: node_js
-
+node_js: "node"
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -22,15 +22,13 @@ before_script:
 
 jobs:
   include:
-    - script: ng test -sr
-      node_js: "6"
-      node_js: "node"
-    - stage: integration
+    - stage: prepare cache
+      script: echo "Preparing cache"
+    - stage: test
+      script: ng test -sr
+    - stage: test
       script: ng e2e
-      node_js: "6"
-      node_js: "node"
     - stage: deploy
-      node_js: "node"
       script:
         - ng build --prod --base-href /diablo3cube/ --deploy-url https://seeker.github.io/diablo3cube/
       deploy:

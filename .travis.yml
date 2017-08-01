@@ -21,13 +21,13 @@ before_script:
 
 jobs:
   include:
-    # - script: ng test -sr
-    #   node_js: "6"
-    #   node_js: "node"
-    # - stage: integration
-    #   script: ng e2e
-    #   node_js: "6"
-    #   node_js: "node"
+    - script: ng test -sr
+      node_js: "6"
+      node_js: "node"
+    - stage: integration
+      script: ng e2e
+      node_js: "6"
+      node_js: "node"
     - stage: deploy
       node_js: "node"
       script:

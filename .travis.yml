@@ -40,3 +40,4 @@ jobs:
         github_token: $GITHUB_OAUTH_TOKEN
         on:
           branch: master
+          branch: pages

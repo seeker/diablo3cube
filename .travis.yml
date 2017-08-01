@@ -1,5 +1,6 @@
 sudo: false
 dist: trusty
+cache: yarn
 addons:
   apt:
     sources:

@@ -1,5 +1,6 @@
-sudo: required
+sudo: false
 dist: trusty
+cache: yarn
 addons:
   apt:
     sources:
@@ -16,8 +17,8 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-- npm install -g @angular/cli
-- npm install
+- yarn global add @angular/cli
+- ng set --global packageManager=yarn
 
 jobs:
   include:
@@ -31,7 +32,6 @@ jobs:
     - stage: deploy
       node_js: "node"
       script:
-        - npm install enhanced-resolve@3.3.0 # Workaround from https://github.com/angular/angular-cli/issues/4551#issuecomment-317459157
         - ng build --prod --base-href /diablo3cube/ --deploy-url https://seeker.github.io/diablo3cube/
       deploy:
         provider: pages

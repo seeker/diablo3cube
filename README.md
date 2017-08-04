@@ -2,6 +2,8 @@
 
 A Angular 4 application to track item extraction in Diablo 3.
 
+The compiled application is available for use on the [github page](https://seeker.github.io/diablo3cube/).
+
 Features:
 - Up-to-date item information
 - Mark items as extracted for Normal / Season

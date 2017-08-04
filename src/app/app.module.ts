@@ -14,13 +14,15 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { SettingService } from './setting.service';
 import { SettingComponent } from './setting/setting.component';
 import { ItemFilterService } from './item-filter.service';
+import { ItemSearchPipe } from './item-search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemDetailComponent,
     ItemListComponent,
-    SettingComponent
+    SettingComponent,
+    ItemSearchPipe
   ],
   imports: [
     BrowserModule,

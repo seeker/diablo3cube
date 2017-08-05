@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ItemListComponent } from './item-list.component';
 import { ItemDetailComponent } from '../item-detail/item-detail.component';
 
+import { ItemSearchPipe } from '../item-search.pipe';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
 
@@ -21,7 +22,7 @@ describe('ItemListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ItemListComponent, ItemDetailComponent],
+      declarations: [ItemListComponent, ItemDetailComponent, ItemSearchPipe],
       imports: [FormsModule],
       providers: [{ provide: ItemService, useClass: ItemServiceStub }]
     })

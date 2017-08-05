@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import {ItemListComponent} from './item-list/item-list.component';
 import { ItemService } from './item.service';
+import {ItemSearchPipe} from './item-search.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         ItemDetailComponent,
-        ItemListComponent
+        ItemListComponent,
+        ItemSearchPipe
       ]
 
     }).compileComponents();

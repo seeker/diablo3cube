@@ -15,6 +15,11 @@ class SettingServiceMock {
   public hideNormal: boolean;
   public hideSeason: boolean;
 
+  constructor() {
+    this.hideNormal = false;
+    this.hideSeason = false;
+  }
+
   public getSetting(setting: Settings): boolean {
     switch (setting) {
       case Settings.HideCubedNormal: {
@@ -105,4 +110,18 @@ describe('ItemFilterService', () => {
 
         expect(service.displayItem(seasonCube)).toEqual(true);
       }));
+
+      it('should not display normal cubed items if seasonal and normal items are hidden'
+        , inject([ItemFilterService, SettingService, CubeItemService],
+          (service: ItemFilterService,
+            setting: SettingServiceMock,
+            cis: CubeItemServiceMock) => {
+
+            cis.cube.extractedNormal = true;
+
+            setting.hideSeason = true;
+            setting.hideNormal = true;
+
+            expect(service.displayItem(seasonCube)).toEqual(false);
+          }));
 });

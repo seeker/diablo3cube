@@ -30,11 +30,11 @@ export class ItemFilterService {
     let display = true;
 
     if (this.settingService.getSetting(Settings.HideCubedNormal)) {
-      display = !this.cubeItemService.get(item.name).extractedNormal;
+      display = display && !this.cubeItemService.get(item.name).extractedNormal;
     }
 
     if (this.settingService.getSetting(Settings.HideCubedSeason)) {
-      display = !this.cubeItemService.get(item.name).extractedSeason;
+      display = display && !this.cubeItemService.get(item.name).extractedSeason;
     }
 
     return display;

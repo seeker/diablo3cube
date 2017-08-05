@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {ItemService} from '../item.service';
+import { ItemService } from '../item.service';
 import { Item } from '../item';
 
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css']
+  styleUrls: ['./item-list.component.css'],
 })
+
 export class ItemListComponent implements OnInit {
   @Input() items: Item[];
 
@@ -14,6 +15,10 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit() {
     this.showArmors();
+  }
+
+  onSearchChange() {
+    this.items = this.items.slice();
   }
 
   showArmors() {

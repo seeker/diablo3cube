@@ -33,6 +33,7 @@ import { ItemSearchPipe } from './item-search.pipe';
       storageType: 'localStorage'
     })
   ],
+  exports: [ItemSearchPipe],
   providers: [LocalStorageModule,
     ItemService,
     CubeItemService,

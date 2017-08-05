@@ -5,7 +5,8 @@
 <Button (click)="showArmors()">Armor</Button>
 <Button (click)="showWeapons()">Weapons</Button>
 <Button (click)="showJewelry()">Jewelry</Button>
-
+<label>Filter:</label>
+<input type="search" #filter (input)=onSearchChange()>
 <table class="items">
   <tr>
     <th>Name</th>
@@ -14,5 +15,5 @@
     <th>Stashed</th>
     <th>Affix</th>
   </tr>
-  <tr class="item-row" app-item-detail [item]="item" *ngFor="let item of items"></tr>
+  <tr class="item-row" app-item-detail [item]="item" *ngFor="let item of items | itemSearch:filter.value"></tr>
 </table>

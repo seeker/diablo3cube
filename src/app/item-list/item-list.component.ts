@@ -21,6 +21,10 @@ export class ItemListComponent implements OnInit {
     this.items = this.items.slice();
   }
 
+  onSelectionChange() {
+    this.onSearchChange();
+  }
+
   showArmors() {
     this.itemService.getArmors().then(items => this.items = items);
   }

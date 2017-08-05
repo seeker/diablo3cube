@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { CubeItemService } from '../cube-item.service';
 
@@ -16,6 +16,7 @@ export class ItemDetailComponent {
   localItem: Item;
   cube: CubeItem;
 
+  @Output() onSelectionChange = new EventEmitter<void>();
   @Input()
   set item(item: Item) {
     this.localItem = item;
@@ -35,5 +36,6 @@ export class ItemDetailComponent {
 
   checkboxChanged() {
     this.cubeItemService.set(this.cube);
+    this.onSelectionChange.emit();
   }
 }

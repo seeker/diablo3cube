@@ -12,17 +12,17 @@ const seasonCube: Item = new Item('a', 'a');
 const normalCube: Item = new Item('b', 'a');
 
 class SettingServiceMock {
-  public normal: boolean;
-  public season: boolean;
+  public hideNormal: boolean;
+  public hideSeason: boolean;
 
   public getSetting(setting: Settings): boolean {
     switch (setting) {
       case Settings.HideCubedNormal: {
-        return this.normal;
+        return this.hideNormal;
       }
 
       case Settings.HideCubedSeason: {
-        return this.season;
+        return this.hideSeason;
       }
 
       default: {
@@ -65,7 +65,7 @@ describe('ItemFilterService', () => {
         cis: CubeItemServiceMock) => {
 
         cis.cube.extractedNormal = true;
-        setting.normal = true;
+        setting.hideNormal = true;
 
         expect(service.displayItem(seasonCube)).toEqual(false);
       }));
@@ -77,7 +77,7 @@ describe('ItemFilterService', () => {
         cis: CubeItemServiceMock) => {
 
         cis.cube.extractedNormal = true;
-        setting.season = true;
+        setting.hideSeason = true;
 
         expect(service.displayItem(seasonCube)).toEqual(true);
       }));
@@ -89,7 +89,7 @@ describe('ItemFilterService', () => {
         cis: CubeItemServiceMock) => {
 
         cis.cube.extractedSeason = true;
-        setting.season = true;
+        setting.hideSeason = true;
 
         expect(service.displayItem(seasonCube)).toEqual(false);
       }));
@@ -101,7 +101,7 @@ describe('ItemFilterService', () => {
         cis: CubeItemServiceMock) => {
 
         cis.cube.extractedSeason = true;
-        setting.normal = true;
+        setting.hideNormal = true;
 
         expect(service.displayItem(seasonCube)).toEqual(true);
       }));

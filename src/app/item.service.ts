@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item';
 
-import { ItemFilterService } from './item-filter.service';
-
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -15,7 +13,7 @@ export class ItemService {
 
   private itemData: any;
 
-  constructor(private itemFilter: ItemFilterService) {
+  constructor() {
     const data = require('assets/items.json');
     this.setData(data);
   }
@@ -32,12 +30,8 @@ export class ItemService {
     this.weapons = this.createItems(this.itemData.weapons);
   }
 
-  private filterItems(items: Item[]): Item[] {
-    return items.filter(item => this.itemFilter.displayItem(item));
-  }
-
   getArmors(): Promise<Item[]> {
-    return Promise.resolve(this.filterItems(this.armors));
+    return Promise.resolve(this.armors);
   }
 
   getJewelry(): Promise<Item[]> {

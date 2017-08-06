@@ -15,6 +15,7 @@ import { SettingService } from './setting.service';
 import { SettingComponent } from './setting/setting.component';
 import { ItemFilterService } from './item-filter.service';
 import { ItemSearchPipe } from './item-search.pipe';
+import { ItemFilterPipe } from './item-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ItemSearchPipe } from './item-search.pipe';
     ItemDetailComponent,
     ItemListComponent,
     SettingComponent,
-    ItemSearchPipe
+    ItemSearchPipe,
+    ItemFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { ItemSearchPipe } from './item-search.pipe';
       storageType: 'localStorage'
     })
   ],
-  exports: [ItemSearchPipe],
+  exports: [ItemSearchPipe, ItemFilterPipe],
   providers: [LocalStorageModule,
     ItemService,
     CubeItemService,

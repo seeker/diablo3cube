@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
-import {ItemListComponent} from './item-list/item-list.component';
+import { ItemListComponent } from './item-list/item-list.component';
 import { ItemService } from './item.service';
-import {ItemSearchPipe} from './item-search.pipe';
+import { ItemSearchPipe } from './item-search.pipe';
+import { ItemFilterPipe } from './item-filter.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
         AppComponent,
         ItemDetailComponent,
         ItemListComponent,
-        ItemSearchPipe
+        ItemSearchPipe,
+        ItemFilterPipe
       ]
 
     }).compileComponents();

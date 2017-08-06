@@ -15,5 +15,5 @@
     <th>Stashed</th>
     <th>Affix</th>
   </tr>
-  <tr class="item-row" app-item-detail (onSelectionChange)="onSelectionChange($event)" [item]="item" *ngFor="let item of items | itemSearch:filter.value"></tr>
+  <tr class="item-row" app-item-detail (onSelectionChange)="onSelectionChange($event)" [item]="item" *ngFor="let item of items | itemSearch:filter.value | itemFilter"></tr>
 </table>

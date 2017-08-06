@@ -15,7 +15,7 @@ let itemJ: Item;
 
 describe('ItemService', () => {
   beforeEach(() => {
-    service = new ItemService({ displayItem(item: Item): boolean { return true; } } as ItemFilterService);
+    service = new ItemService();
     service.setData(JSON.parse(testData));
 
     itemA = new Item('an', 'aa');

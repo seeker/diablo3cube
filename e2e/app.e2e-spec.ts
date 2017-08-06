@@ -93,7 +93,6 @@ describe('diablo3cube App', () => {
 
     page.clickHideNormal();
     page.navigateToItems();
-    browser.refresh(); // TODO page should auto reload on ticked items
 
     expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
   });

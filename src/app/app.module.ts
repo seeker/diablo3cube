@@ -16,6 +16,7 @@ import { SettingComponent } from './setting/setting.component';
 import { ItemFilterService } from './item-filter.service';
 import { ItemSearchPipe } from './item-search.pipe';
 import { ItemFilterPipe } from './item-filter.pipe';
+import { ImportExportService } from './import-export.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ItemFilterPipe } from './item-filter.pipe';
     ItemService,
     CubeItemService,
     SettingService,
-    ItemFilterService],
+    ItemFilterService,
+    ImportExportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

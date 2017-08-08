@@ -45,3 +45,18 @@ describe('CubeItem', () => {
     expect(sut.stashed).toEqual(true);
   });
 });
+
+describe('CubeItem static constructor', () => {
+  const testItem: CubeItem = new CubeItem('test cube');
+
+  it('should create an instance from valid data', () => {
+    expect(CubeItem
+      .createCubeItem({"name":"test cube","extractedNormal":false,"extractedSeason":false,"stashed":false}))
+      .toEqual(testItem);
+  });
+
+  it('should should throw an error on invalid data', () => {
+      expect(()=>{CubeItem.createCubeItem({"foo":"bar"})}).toThrowError();
+  });
+
+});

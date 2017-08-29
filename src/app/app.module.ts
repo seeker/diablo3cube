@@ -17,6 +17,7 @@ import { ItemFilterService } from './item-filter.service';
 import { ItemSearchPipe } from './item-search.pipe';
 import { ItemFilterPipe } from './item-filter.pipe';
 import { ImportExportService } from './import-export.service';
+import { ImportExportComponent } from './import-export/import-export.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ImportExportService } from './import-export.service';
     ItemListComponent,
     SettingComponent,
     ItemSearchPipe,
-    ItemFilterPipe
+    ItemFilterPipe,
+    ImportExportComponent
   ],
   imports: [
     BrowserModule,

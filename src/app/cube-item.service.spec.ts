@@ -4,6 +4,7 @@ import { CubeItemService } from './cube-item.service';
 import { LocalStorageModule, LocalStorageService } from 'angular-2-local-storage';
 
 import { CubeItem } from './cube-item';
+import { Item } from './item';
 
 const testPrefix = 'diablo3cube-test';
 
@@ -51,5 +52,12 @@ describe('CubeItemService', () => {
 
   it('should not have item', () => {
     expect(cubeItemService.get(newItemKey)).toEqual(newItem);
+  });
+
+  it('should have all existing items', () => {
+    let result:CubeItem[] = cubeItemService.getAll([new Item(existingItemKey,''),new Item(existingItemSeasonalKey,'')]);
+
+    expect(result).toContain(existingItem);
+    expect(result).toContain(existingItemSeasonal);
   });
 });

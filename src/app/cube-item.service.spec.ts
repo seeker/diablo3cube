@@ -31,7 +31,6 @@ describe('CubeItemService', () => {
 
     cubeItemService.set(existingItem);
     cubeItemService.set(existingItemSeasonal);
-
   });
 
   it('should clear stored test data', () => {

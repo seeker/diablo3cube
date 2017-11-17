@@ -20,7 +20,7 @@ describe('diablo3cube App', () => {
 
   it('should display armor by default', () => {
     page.navigateTo();
-    expect(page.getItemName()).toEqual('Akarat\'s Awakening');
+    expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
   });
 
   it('should display weapons after clicking the weapons button', () => {
@@ -42,7 +42,7 @@ describe('diablo3cube App', () => {
     expect(page.getItemName()).toEqual('Ancestors\' Grace');
 
     page.clickButton('Armor');
-    expect(page.getItemName()).toEqual('Akarat\'s Awakening');
+    expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
   });
 
   it('should check seasonal checkbox', () => {
@@ -85,7 +85,7 @@ describe('diablo3cube App', () => {
     page.clickHideSeason();
     page.navigateToItems();
 
-    expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
+    expect(page.getItemName()).toEqual('Ancient Parthan Defenders');
   });
 
   it('should hide normal cubed items', () => {
@@ -94,6 +94,6 @@ describe('diablo3cube App', () => {
     page.clickHideNormal();
     page.navigateToItems();
 
-    expect(page.getItemName()).toEqual('Akkhan\'s Manacles');
+    expect(page.getItemName()).toEqual('Ancient Parthan Defenders');
   });
 });

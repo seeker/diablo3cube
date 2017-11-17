@@ -27,7 +27,7 @@ jobs:
       script: ng e2e
     - stage: deploy
       script:
-        - ng build --prod --base-href /diablo3cube/ --deploy-url https://seeker.github.io/diablo3cube/
+        - ng build --prod --aot=false --base-href /diablo3cube/ --deploy-url https://seeker.github.io/diablo3cube/
       deploy:
         provider: pages
         skip_cleanup: true

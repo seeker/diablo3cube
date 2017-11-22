@@ -13,45 +13,44 @@ const existingItemSeasonalKey = 'existingItemSeasonal';
 
 describe('CubeItemService', () => {
 
-  /* tslint:disable:prefer-const */
   let cubeItemService: CubeItemService;
   let localStorageService: LocalStorageService;
 
   let existingItem: CubeItem;
   let existingItemSeasonal: CubeItem;
   let newItem: CubeItem;
-  /* tslint:enable:prefer-const */
 
   beforeEach(() => {
-    this.localStorageService = new LocalStorageService({ prefix: testPrefix, storageType: 'localStorage' });
-    this.cubeItemService = new CubeItemService(this.localStorageService);
-    this.localStorageService.clearAll('');
+    localStorageService = new LocalStorageService({ prefix: testPrefix, storageType: 'localStorage' });
+    cubeItemService = new CubeItemService(localStorageService);
+    localStorageService.clearAll('');
 
-    this.existingItem = new CubeItem(existingItemKey);
-    this.existingItemSeasonal = new CubeItem(existingItemSeasonalKey, false, true);
-    this.newItem = new CubeItem(newItemKey);
+    existingItem = new CubeItem(existingItemKey);
+    existingItemSeasonal = new CubeItem(existingItemSeasonalKey, false, true);
+    newItem = new CubeItem(newItemKey);
 
-    this.cubeItemService.set(this.existingItem);
-    this.cubeItemService.set(this.existingItemSeasonal);
+    cubeItemService.set(existingItem);
+    cubeItemService.set(existingItemSeasonal);
+
   });
 
   it('should clear stored test data', () => {
-    expect(this.localStorageService.clearAll('')).toEqual(true);
+    expect(localStorageService.clearAll('')).toEqual(true);
   });
 
   it('should be created', () => {
-    expect(this.cubeItemService).toBeTruthy();
+    expect(cubeItemService).toBeTruthy();
   });
 
   it('should store item', () => {
-    expect(this.cubeItemService.set(this.newItem)).toEqual(true);
+    expect(cubeItemService.set(newItem)).toEqual(true);
   });
 
   it('should have existing item', () => {
-    expect(this.cubeItemService.get(existingItemKey)).toEqual(this.existingItem);
+    expect(cubeItemService.get(existingItemKey)).toEqual(existingItem);
   });
 
   it('should not have item', () => {
-    expect(this.cubeItemService.get(newItemKey)).toEqual(this.newItem);
+    expect(cubeItemService.get(newItemKey)).toEqual(newItem);
   });
 });

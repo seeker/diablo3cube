@@ -55,7 +55,7 @@ describe('CubeItemService', () => {
   });
 
   it('should have all existing items', () => {
-    let result:CubeItem[] = cubeItemService.getAll([new Item(existingItemKey,''),new Item(existingItemSeasonalKey,'')]);
+    const result: CubeItem[] = cubeItemService.getAll([new Item(existingItemKey, ''), new Item(existingItemSeasonalKey, '')]);
 
     expect(result).toContain(existingItem);
     expect(result).toContain(existingItemSeasonal);

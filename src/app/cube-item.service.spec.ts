@@ -28,10 +28,11 @@ describe('CubeItemService', () => {
     this.localStorageService.clearAll('');
 
     this.existingItem = new CubeItem(existingItemKey);
-    this.existingItemSeasonal = new CubeItem(existingItemSeasonalKey);
+    this.existingItemSeasonal = new CubeItem(existingItemSeasonalKey, false, true);
     this.newItem = new CubeItem(newItemKey);
 
     this.cubeItemService.set(this.existingItem);
+    this.cubeItemService.set(this.existingItemSeasonal);
   });
 
   it('should clear stored test data', () => {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SettingService, Settings } from '../setting.service';
+import { CubeItemService } from '../cube-item.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { SettingService, Settings } from '../setting.service';
 })
 export class SettingComponent implements OnInit {
 
-  constructor(private settingService: SettingService) { }
+  constructor(private settingService: SettingService, private cubeItemService: CubeItemService) { }
 
   set hideCubeNormal(value: boolean) {
     this.settingService.setSetting(Settings.HideCubedNormal, value);
@@ -27,6 +28,10 @@ export class SettingComponent implements OnInit {
 
   get hideCubeSeasonal(): boolean {
     return this.settingService.getSetting(Settings.HideCubedSeason);
+  }
+
+  moveToNormal():void {
+    this.cubeItemService.moveExtractedToNormal();
   }
 
   ngOnInit() {

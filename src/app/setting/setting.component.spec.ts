@@ -3,10 +3,16 @@ import { FormsModule } from '@angular/forms';
 
 import { SettingService, Settings } from '../setting.service';
 import { SettingComponent } from './setting.component';
+import { CubeItemService } from '../cube-item.service';
 
 class SettingServiceStub {
   public getSetting(setting: Settings): boolean {
     return false;
+  }
+}
+
+class CubeItemServiceStub {
+  public moveExtractedToNormal():void {
   }
 }
 
@@ -18,7 +24,10 @@ describe('SettingComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SettingComponent],
       imports: [FormsModule],
-      providers: [{ provide: SettingService, useClass: SettingServiceStub }]
+      providers: [
+        { provide: SettingService, useClass: SettingServiceStub },
+        { provide: CubeItemService, useClass: CubeItemServiceStub }
+      ]
     })
       .compileComponents();
   }));

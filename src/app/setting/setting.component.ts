@@ -31,7 +31,9 @@ export class SettingComponent implements OnInit {
   }
 
   moveToNormal():void {
-    this.cubeItemService.moveExtractedToNormal();
+    if(confirm("Are you sure? This action cannot be undone")) {
+      this.cubeItemService.moveExtractedToNormal();
+    }
   }
 
   ngOnInit() {

@@ -59,4 +59,14 @@ export class Diablo3cubePage {
   pause() {
     browser.pause();
   }
+
+  confirmation(accept: boolean) {
+    const alert = browser.switchTo().alert();
+
+    if (accept) {
+      alert.accept();
+    } else {
+      alert.dismiss();
+    }
+  }
 }

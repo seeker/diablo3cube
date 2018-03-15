@@ -47,4 +47,19 @@ export class CubeItemService {
     // TODO static function to create instance from ItemData
     return new CubeItem(stored.name, stored.extractedNormal, stored.extractedSeason, stored.stashed);
   }
+  
+  public moveExtractedToNormal():void {
+    const keys:Array<string> = this.localStorageService.keys();
+
+    for (let storeKey of keys) {
+      const stored: CubeData = this.localStorageService.get<CubeData>(storeKey);
+      
+      if(stored.extractedSeason === true) {
+        stored.extractedSeason = false;
+        stored.extractedNormal = true;
+      }
+
+      this.localStorageService.set(storeKey, stored);
+    }
+  }
 }

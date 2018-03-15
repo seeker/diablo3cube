@@ -96,4 +96,30 @@ describe('diablo3cube App', () => {
 
     expect(page.getItemName()).toEqual('Ancient Parthan Defenders');
   });
+
+  it('should move seasonal items to normal', () => {
+    page.clickCheckbox('checkbox-season');
+
+    page.navigateToSettings();
+    page.clickButton('Move to Normal');
+    page.confirmation(true);
+
+    page.navigateToItems();
+
+    expect(page.isChecked('checkbox-normal')).toBeTruthy();
+    expect(page.isChecked('checkbox-season')).toBeFalsy();
+  });
+
+  it('should not move seasonal items to normal if cancelled', () => {
+    page.clickCheckbox('checkbox-season');
+
+    page.navigateToSettings();
+    page.clickButton('Move to Normal');
+    page.confirmation(false);
+
+    page.navigateToItems();
+
+    expect(page.isChecked('checkbox-normal')).toBeFalsy();
+    expect(page.isChecked('checkbox-season')).toBeTruthy();
+  });
 });
